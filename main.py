@@ -72,8 +72,7 @@ def choosedrink():
         needed_water = drink["ingredients"]["water"]
         needed_coffee = drink["ingredients"]["coffee"]
 
-        if needed_water > resources["water"] and needed_milk > resources["milk"] and needed_coffee > resources[
-            "coffee"]:
+        if needed_water > resources["water"] and needed_milk > resources["milk"] and needed_coffee > resources["coffee"]:
             print("Sorry we don't have enough resources")
         return choice
     else:
@@ -105,11 +104,8 @@ totalpaied = 0.00
 def takepayment():
     totalpaied = 0.00
     for coin in PAYMENT:
-        print(f"So far you have paid {totalpaied}")
         PAYMENT[coin]["amount"] = int(input(f"How many of {coin} do you have? "))
-        print(PAYMENT[coin])
         totalpaied += (PAYMENT[coin]["amount"] * PAYMENT[coin]["value"])
-        print(f"added {totalpaied} to your total")
     return totalpaied
 
 
@@ -123,12 +119,10 @@ def workoutchange(payment, choice):
 # TODO: 7.check transaction is sucessfull and been paid the right amount
 def istransctionsucesfull(payment, choice):
     inttakings = 0.00
-    print(choice)
-    print(MENU[choice])
     if payment < MENU[choice]["cost"]:
         print("Your money has been refunded")
     else:
-        print("Transaction sucesfull")
+        print("Transaction succesfull")
         inttakings += MENU[choice]["cost"]
         success = True
         return inttakings, success
